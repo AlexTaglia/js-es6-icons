@@ -111,11 +111,6 @@ Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 */
 
 
-// creo un nuovo array che userò per il filtro senza intaccare il mio array base
-const newArrayPerFiltro = icons.map((element) => {
-	return element;
-})
-console.log(newArrayPerFiltro);
 
 
 // Ora devo selezionare i miei value input da applivcare al filtro.
@@ -124,8 +119,32 @@ const scelta = document.querySelector('.filter-select');
 scelta.addEventListener('change', (event) => {
 	const result = event.target.value;
 	console.log(result);
-  });
+});
 
+// ora devo applicare la scielta all'array filtrato
+
+function filterIcons(choice, originalList) {
+	
+	const newArray = originalList.filter((icon) => {
+
+		if (choice === 'all') {
+			return true;
+		}
+
+		if (choice === icon.type) {
+			return true;
+		}
+
+		return false
+	})
+
+	return newArray;
+}
+
+// creo un nuovo array che userò per il filtro senza intaccare il mio array base
+const newArrayPerFiltro = filterIcons('animal', icons);
+
+console.log(newArrayPerFiltro);
 
 // Stampo a video
 newArrayPerFiltro.forEach((icon) => {
