@@ -118,6 +118,15 @@ const newArrayPerFiltro = icons.map((element) => {
 console.log(newArrayPerFiltro);
 
 
+// Ora devo selezionare i miei value input da applivcare al filtro.
+const scelta = document.querySelector('.filter-select');
+
+scelta.addEventListener('change', (event) => {
+	const result = event.target.value;
+	console.log(result);
+  });
+
+
 // Stampo a video
 newArrayPerFiltro.forEach((icon) => {
 	const outputHTML = document.querySelector('.card-container');
