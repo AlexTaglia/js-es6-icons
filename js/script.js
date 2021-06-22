@@ -110,28 +110,16 @@ Milestone 3
 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 */
 
+// Funzione per filtrare le icone in base alla scelta
+function filterIcons(value, arrayList) {
 
+	const newArray = arrayList.filter((icon) => {
 
-
-// Ora devo selezionare i miei value input da applivcare al filtro.
-const scelta = document.querySelector('.filter-select');
-
-scelta.addEventListener('change', (event) => {
-	const result = event.target.value;
-	console.log(result);
-});
-
-// ora devo applicare la scielta all'array filtrato
-
-function filterIcons(choice, originalList) {
-	
-	const newArray = originalList.filter((icon) => {
-
-		if (choice === 'all') {
+		if (value === 'all') {
 			return true;
 		}
 
-		if (choice === icon.type) {
+		if (value === icon.type) {
 			return true;
 		}
 
@@ -141,24 +129,46 @@ function filterIcons(choice, originalList) {
 	return newArray;
 }
 
-// creo un nuovo array che userò per il filtro senza intaccare il mio array base
-const newArrayPerFiltro = filterIcons('animal', icons);
 
-console.log(newArrayPerFiltro);
+function printHTML(value) {
 
-// Stampo a video
-newArrayPerFiltro.forEach((icon) => {
+	// creo un nuovo array con con la mia funzione filtro
+	const newArrayFiltrato = filterIcons(value, icons);
+
+	// prendo l'elemtent
 	const outputHTML = document.querySelector('.card-container');
 
-	outputHTML.innerHTML += `
-	<div class='col card-item'>
-		<div class='inner-card'>
-			<i class="${icon.type} ${icon.family} ${icon.prefix}${icon.name}"></i>
-		
-			<div class='text text-uppercase'>
-				${icon.name}
+	// resetto l'HTML ogni volta che viene lanciata la funzione
+	// altrimenti mi aggiunge sotto le icone
+	outputHTML.innerHTML = "";
+
+	// per ciascuna icona nell'array stampo
+	newArrayFiltrato.forEach((icon) => {
+
+		outputHTML.innerHTML += `
+			<div class='col card-item'>
+				<div class='inner-card'>
+					<i class="${icon.type} ${icon.family} ${icon.prefix}${icon.name}"></i>
+			
+					<div class='text text-uppercase'>
+					${icon.name}
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	`
+		`
+	});
+
+}
+
+// lancio la mia funzione di stampa che mi stampa 'all' tutti i tipi
+printHTML('all');
+
+// Vado a prendere il l'elemento della select
+const scelta = document.querySelector('.filter-select');
+
+// ad ogni change della select rilancio
+// la mia funzione che stampa, pero in questo caso la rilancia 
+// in base alla value  
+scelta.addEventListener('change', (event) => {
+	printHTML(event.target.value);
 });
