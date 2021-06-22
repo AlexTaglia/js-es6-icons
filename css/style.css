@@ -34,3 +34,15 @@ h1{
     text-align: center;
     padding: 10px 0;
 }
+
+.animal{
+    color: blue;
+}
+
+.vegetable{
+    color: orange;
+}
+
+.user{
+    color: purple;
+}

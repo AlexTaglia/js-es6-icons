@@ -117,7 +117,7 @@ icons.forEach((icon) => {
 	outputHTML.innerHTML += `
 	<div class='col card-item'>
 		<div class='inner-card'>
-			<i class="${icon.family} ${icon.prefix}${icon.name}"></i>
+			<i class="${icon.type} ${icon.family} ${icon.prefix}${icon.name}"></i>
 		
 			<div class='text text-uppercase'>
 				${icon.name}
