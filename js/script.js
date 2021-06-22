@@ -110,10 +110,18 @@ Milestone 3
 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 */
 
-const outputHTML = document.querySelector('.card-container');
 
-// Milestone 1
-icons.forEach((icon) => {
+// creo un nuovo array che userò per il filtro senza intaccare il mio array base
+const newArrayPerFiltro = icons.map((element) => {
+	return element;
+})
+console.log(newArrayPerFiltro);
+
+
+// Stampo a video
+newArrayPerFiltro.forEach((icon) => {
+	const outputHTML = document.querySelector('.card-container');
+
 	outputHTML.innerHTML += `
 	<div class='col card-item'>
 		<div class='inner-card'>
