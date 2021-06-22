@@ -99,7 +99,8 @@ const icons = [
 
 /*
 Milestone 1
-Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone 
+Partendo dalla seguente struttura dati , 
+mostriamo in pagina tutte le icone 
 disponibili come da layout.
 
 Milestone 2
@@ -108,3 +109,20 @@ Coloriamo le icone per tipo
 Milestone 3
 Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 */
+
+const outputHTML = document.querySelector('.card-container');
+
+// Milestone 1
+icons.forEach((icon) => {
+	outputHTML.innerHTML += `
+	<div class='col card-item'>
+		<div class='inner-card'>
+			<i class="${icon.family} ${icon.prefix}${icon.name}"></i>
+		
+			<div class='text text-uppercase'>
+				${icon.name}
+			</div>
+		</div>
+	</div>
+	`
+});

@@ -1,0 +1,36 @@
+.card-container{
+    background-color: lightgray;
+}
+
+.card-item{
+    flex-basis: calc(100% / 5);
+    max-width: calc(100% / 5);
+    text-align: center;
+}
+
+.card-item .inner-card{
+    background-color: white;
+    border-radius: 5px;
+    height: 80px;
+    padding: 10px;
+    margin: 20px 15px;
+    box-shadow: 2px 2px 5px #888;
+} 
+
+.card-item  i{
+    font-size: 25px;
+}
+
+.card-item  .text{
+    font-size: 12px;
+}
+
+h1{
+    color: lightskyblue;
+}
+
+.section-select{
+    background-color: lightskyblue;
+    text-align: center;
+    padding: 10px 0;
+}
